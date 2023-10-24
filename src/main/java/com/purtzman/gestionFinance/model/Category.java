@@ -12,6 +12,7 @@ public class Category {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
    private String name;
+   private boolean predefined = false; 
 
    public Category() {
 
@@ -19,6 +20,14 @@ public class Category {
 
    public Long getId() {
       return id;
+   }
+
+   public boolean isPredefined() {
+      return predefined;
+   }
+
+   public void setPredefined(boolean predefined) {
+      this.predefined = predefined;
    }
 
    public void setId(Long id) {
@@ -35,9 +44,10 @@ public class Category {
 
    @Override
    public String toString() {
-      return "Category [id=" + id + ", name=" + name + "]";
+      return "Category [id=" + id + ", name=" + name + ", predefined=" + predefined + "]";
    }
 
+   
    
    
 }
