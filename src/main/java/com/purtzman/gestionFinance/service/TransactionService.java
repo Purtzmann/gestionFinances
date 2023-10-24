@@ -14,12 +14,21 @@ public class TransactionService {
    @Autowired
    private TransactionRepository transactionRepository;
 
-   // Create a new transaction
+   @Autowired
+   private AccountService accountService;
+
+
+   public Transaction addTransaction(Transaction transaction) {
+      if (!accountService.hasAccounts()) {
+          throw new IllegalStateException("Cannot add a transaction without an existing account.");
+      }
+      return transactionRepository.save(transaction);
+  }
+
    public Transaction createTransaction(Transaction transaction) {
       return transactionRepository.save(transaction);
    }
 
-   // Return all transactions
    public List<Transaction> getAllTransactions() {
       return transactionRepository.findAll();
    }

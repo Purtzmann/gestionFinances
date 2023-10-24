@@ -31,4 +31,8 @@ public class AccountService {
         accountRepository.deleteById(id);
     }
 
+    public boolean hasAccounts() {
+      return accountRepository.count() > 0;
+  }
+
 }
