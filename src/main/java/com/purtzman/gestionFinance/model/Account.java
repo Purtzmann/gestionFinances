@@ -14,6 +14,10 @@ public class Account {
    private String name;
    private Double balance;
 
+   public Account() {
+
+   }
+
 
    public Account(Long id, String name, Double balance) {
       this.id = id;
