@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import java.util.Date;
 
 @Entity
@@ -17,7 +20,12 @@ public class Transaction {
    private Date date;
    private String type;
 
-   public Transaction() {}
+   @ManyToOne
+   @JoinColumn(name = "category_id")
+   private Category category;
+
+   public Transaction() {
+   }
 
    public Transaction(Long id, String description, Double amount, Date date, String type) {
       this.id = id;
